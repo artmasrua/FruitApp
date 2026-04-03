@@ -19,7 +19,7 @@ import com.example.fruitapp.classes.FruitsDatabase.findAll
 import com.example.fruitapp.viewmodel.FruitListViewModel
 import com.example.fruitapp.classes.Fruit
 @Composable
-fun fruitList(padding: PaddingValues, navController: NavController) {
+fun FruitList(padding: PaddingValues, navController: NavController) {
     val viewModel: FruitListViewModel = viewModel()
     val fruitListState = viewModel.uiState.collectAsState().value
 

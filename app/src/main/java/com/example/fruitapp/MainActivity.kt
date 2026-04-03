@@ -22,38 +22,43 @@ import androidx.navigation.NavController
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
+import androidx.navigation.toRoute
 import com.example.fruitapp.classes.Fruit
 import com.example.fruitapp.components.FruitCard
-import com.example.fruitapp.components.fruitInfo
+import com.example.fruitapp.components.FruitInfo
 import com.example.fruitapp.ui.theme.FruitAppTheme
-import com.example.fruitapp.components.fruitList
+import com.example.fruitapp.components.FruitList
 import kotlinx.serialization.Serializable
 
 @Serializable
-object telaInicial
+object TelaInicial
 @Serializable
-data class FruitInfo(val id: Int)
+data class FruitInfoRoute(val id: Int)
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
         setContent {
-            val navController = rememberNavController()
-
-            NavHost(navController = navController, startDestination = telaInicial) {
-                composable<telaInicial> {telaInicial(navController)}
-                composable<FruitInfo> {fruitInfo(1)}
-            }
-            FruitAppTheme {
-                telaInicial(navController)
-            }
+            FruitInfo(id = 1)
+//            val navController = rememberNavController()
+//
+//            NavHost(navController = navController, startDestination = TelaInicial) {
+//                composable<TelaInicial> {TelaInicial(navController)}
+//                composable<FruitInfoRoute> { backStackEntry ->
+//                    val fruit: FruitInfoRoute = backStackEntry.toRoute()
+//                    FruitInfo(fruit.id)
+//                }
+//            }
+//            FruitAppTheme {
+//                TelaInicial(navController)
+//            }
         }
     }
 }
 
 @Composable
-fun telaInicial(navController: NavController) {
+fun TelaInicial(navController: NavController) {
     Scaffold(modifier = Modifier.fillMaxSize()) { innerPadding ->
-        fruitList(innerPadding, navController)
+        FruitList(innerPadding, navController)
     }
 }

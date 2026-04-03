@@ -25,7 +25,7 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.lifecycle.viewmodel.compose.viewModel
 import androidx.navigation.NavController
-import com.example.fruitapp.FruitInfo
+import com.example.fruitapp.FruitInfoRoute
 import com.example.fruitapp.R
 import com.example.fruitapp.classes.Fruit
 import com.example.fruitapp.ui.theme.FruitAppTheme
@@ -34,7 +34,7 @@ import com.example.fruitapp.viewmodel.FruitListViewModel
 @Composable
 fun FruitCard(fruit: Fruit, navController: NavController) {
     Card(
-        onClick = {navController.navigate(FruitInfo(id = fruit.id))},
+        onClick = {navController.navigate(FruitInfoRoute(id = fruit.id))},
         elevation = CardDefaults.cardElevation(
             defaultElevation = 8.dp
         ),
