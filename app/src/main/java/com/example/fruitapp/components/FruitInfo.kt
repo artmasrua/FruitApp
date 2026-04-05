@@ -26,9 +26,10 @@ fun FruitInfo(id: Int) {
     val fruit = fruitInfoState.fruit
 
     Column(
+        modifier = Modifier
+            .padding(16.dp),
         verticalArrangement = Arrangement.Center,
         horizontalAlignment = Alignment.CenterHorizontally
-
     ) {
         fruit?.name?.let {
             Text(

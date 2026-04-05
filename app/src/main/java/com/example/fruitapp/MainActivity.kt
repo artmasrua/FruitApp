@@ -39,19 +39,15 @@ class MainActivity : ComponentActivity() {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
         setContent {
-            FruitInfo(id = 1)
-//            val navController = rememberNavController()
-//
-//            NavHost(navController = navController, startDestination = TelaInicial) {
-//                composable<TelaInicial> {TelaInicial(navController)}
-//                composable<FruitInfoRoute> { backStackEntry ->
-//                    val fruit: FruitInfoRoute = backStackEntry.toRoute()
-//                    FruitInfo(fruit.id)
-//                }
-//            }
-//            FruitAppTheme {
-//                TelaInicial(navController)
-//            }
+            val navController = rememberNavController()
+
+            NavHost(navController = navController, startDestination = TelaInicial) {
+                composable<TelaInicial> {TelaInicial(navController)}
+                composable<FruitInfoRoute> { backStackEntry ->
+                    val fruit: FruitInfoRoute = backStackEntry.toRoute()
+                    FruitInfo(fruit.id)
+                }
+            }
         }
     }
 }

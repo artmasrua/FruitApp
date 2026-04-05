@@ -34,13 +34,13 @@ import com.example.fruitapp.viewmodel.FruitListViewModel
 @Composable
 fun FruitCard(fruit: Fruit, navController: NavController) {
     Card(
-        onClick = {navController.navigate(FruitInfoRoute(id = fruit.id))},
         elevation = CardDefaults.cardElevation(
             defaultElevation = 8.dp
         ),
         modifier = Modifier
             .background(Color.Gray)
-            .padding(16.dp)
+            .padding(16.dp),
+        onClick = {navController.navigate(FruitInfoRoute(id = fruit.id))}
     ) {
         Image(
             painter = painterResource(fruit.photo),
